@@ -1,0 +1,38 @@
+
+body{
+    margin:0;
+    background:#111;
+    color:#b0ffcb;
+    font-family:Arial,Helvetica,sans-serif;
+    padding:20px
+}
+h1{
+    font-size:22px;
+    margin:0 0 20px 0
+}
+.slider{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-behavior:smooth
+}
+.slider::-webkit-scrollbar{
+    display:none
+}
+.item{
+    min-width:240px;
+    background:#222;
+    color:#fff;
+    border-radius:6px;
+    flex:0 0 auto
+}
+.item img{
+    width:100%;
+    border-radius:6px 6px 0 0
+}
+.item p{
+    margin:8px;
+    padding:0;
+    font-size:14px;
+    color:#b0ffcb
+}

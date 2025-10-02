@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@m^uuufaoce)4%d7ui_03o8vh273cbmj+k!s!nj6t$4-x-a3=(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "10.31.12.165"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -48,9 +48,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
-ROOT_URLCONF = 'tienda.urls'
+ROOT_URLCONF = 'myapp.urls'
 
 TEMPLATES = [
     {
@@ -76,9 +77,9 @@ WSGI_APPLICATION = 'tienda.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Tienda_Ropa',
+        'NAME': 'Tienda_ropa',
         'USER': 'postgres',
-        'PASSWORD': 'Jesus040404',
+        'PASSWORD': 'chivas%%2023',
         'HOST': 'localhost',
         'PORT': '5432',
     }
