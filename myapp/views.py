@@ -58,3 +58,9 @@ def add_articulo(request):
         return redirect('admin_main')
     """
     return render(request, 'add_articulo.html')
+
+def inicio_sesion(request):
+    return render(request, 'inicio_sesion.html')
+
+def registro(request):
+    return render(request, 'registro.html')

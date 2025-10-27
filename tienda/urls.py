@@ -8,5 +8,6 @@ urlpatterns = [
     path('', index, name='index'),
     path('admin_main/', admin_main, name='admin_main'),
     path('add_articulo/', add_articulo, name='add_articulo'),
-    
+    path('inicio_sesion/', inicio_sesion, name='inicio_sesion'),
+    path('registro/', registro, name='registro') 
 ]
