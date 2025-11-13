@@ -1,0 +1,57 @@
+{% load static %}        
+<main id="usuarios">
+    <link rel="stylesheet" href="{% static 'css/usuarios.css' %}">
+
+    <h1>Gestión de Usuarios</h1>
+    <div class="tabla_articulos">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Correo (Usuario)</th>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Direccion</th>
+                    <th>Admin</th>
+                    <th>Activo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios_registrados %}
+                <tr>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                    <td>{{ usuario.telefono }}</td>
+                    <td>{{ usuario.direccion }}</td>
+                    
+                    <td>
+                        {% if usuario.is_staff %}Sí{% else %}No{% endif %}
+                    </td>
+                    
+                    <td>
+                        {% if usuario.is_active %}Sí{% else %}No{% endif %}
+                    </td>
+
+                    <td class="acciones">
+                        <form method="POST" action="{% url 'eliminar_usuario' usuario.id %}" 
+                            onsubmit="return confirm('¿Estás seguro de que deseas eliminar a {{ usuario.email }}?');">
+                            {% csrf_token %}
+                            <button type="submit" class="eliminar_usuario_btn"> 
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </form>
+                    </td>
+
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8">No hay usuarios registrados en el sistema.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'registro' %}" class="btn-agregar">Agregar Nuevo Usuario</a>
+</main>

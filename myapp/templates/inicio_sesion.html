@@ -25,7 +25,9 @@
                     <i class="bi bi-x"></i>
                 </button>
                 <header>
-                    <img src="../static/images/logo.png" alt="logo" class="logo">
+                    <a href="{% url 'index' %}" aria-label="Ir al index">
+                        <img src="../static/images/logo.png" alt="logo" class="logo">
+                    </a>
                 </header>
 
                 <footer>
@@ -42,6 +44,8 @@
                 <div class="form-container">
                     <h2 class="titulo">Inicio Sesion.</h2>
                     <form method="POST" enctype="multipart/form-data" class="form-inicio" id="form-inicio">
+                        {% csrf_token %}
+
                         <div class="input">
                             <i class="bi bi-person-fill"></i>
                             <input type="email" name="usuario" id="usuario" placeholder="Ingresa tu correo" required>
@@ -55,7 +59,7 @@
                         <button type="submit" class="btn-submit">Iniciar Sesion</button>
 
                         <p class="mensaje">
-                            ¿No tienes cuenta? <a href="#">Regístrate</a>
+                            ¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate</a>
                         </p>
 
                     </form>

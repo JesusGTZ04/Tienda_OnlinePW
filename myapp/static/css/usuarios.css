@@ -1,0 +1,50 @@
+/* usuarios.css (Depurado) */
+
+/* estilo de la tabla de usuarios */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgb(21, 21, 21);
+}
+
+th {
+    background-color: rgba(199, 161, 80); /* var(--clr-gold) */
+    font-weight: 600;
+    color: #ffffff;
+}
+
+td {
+    color: #555;
+}
+
+.eliminar_usuario_btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--clr-red);
+    font-size: 1rem; 
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.eliminar_usuario_btn:hover {
+    color: darkred;
+}
+
+.btn-agregar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--clr-gold);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+/* ... otros estilos específicos de la tabla si existen ... */

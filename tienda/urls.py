@@ -1,13 +1,13 @@
 from django.urls import path
 from django.urls import include
-from myapp.views import *
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('crear_usuario/', create_usuario, name='crear_usuario'),
-    path('main/', main_view, name='main_view'),
-    path('', index, name='index'),
-    path('admin_main/', admin_main, name='admin_main'),
-    path('add_articulo/', add_articulo, name='add_articulo'),
-    path('inicio_sesion/', inicio_sesion, name='inicio_sesion'),
-    path('registro/', registro, name='registro') 
+    path('admin/', admin.site.urls),
+    path('', include('myapp.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

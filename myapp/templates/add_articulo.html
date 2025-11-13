@@ -14,26 +14,22 @@
 
     <body>    
         <div class="wrapper">
-            <header class="header-mobile">
-                <img src="../static/images/logo.png" alt="logo" class="logo">
-                <button class="open-menu" id="open-menu">
-                    <i class="bi bi-list"></i>
-                </button>
-            </header>
             <aside>
                 <button class="close-menu" id="close-menu">
                     <i class="bi bi-x"></i>
                 </button>
                 <header>
-                    <img src="../static/images/logo.png" alt="logo" class="logo">
+                    <a href="{% url 'index' %}" aria-label="Ir al index">
+                        <img src="../static/images/logo.png" alt="logo" class="logo">
+                    </a>
                 </header>
                 <nav>
                     <ul class="menu">
                         <li>
-                            <button id="todos" class="boton-menu boton-categoria active"><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
-                            <button id="add_articulo" class="boton-menu boton-categoria"><i class="bi bi-plus-circle"></i> Agregar Artículo</button> 
+                            <a href="{% url 'articulos' %}" class="boton-menu boton-categoria "><i class="bi bi-hand-index-thumb-fill"></i> Productos</a>
+                            <a href="{% url 'add_articulo' %}" class="boton-menu boton-categoria active"><i class="bi bi-plus-circle"></i> Agregar Artículo</a>
+                            <a href="{% url 'usuarios' %}" class="boton-menu boton-categoria"> <i class="bi bi-person-circle"></i> Usuarios </a>
                         </li>
-                        
                     </ul>
                 </nav>
                 <footer>
@@ -79,6 +75,7 @@
                                 <option value="playeras">Playeras</option>
                                 <option value="sudaderas">Sudaderas</option>
                                 <option value="collares">Collares</option>
+                                <option value="tenis">Tenis</option>
                             </select>
                             <div class="error-message"></div>
 
@@ -100,8 +97,7 @@
                 </div>
             </main>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/just-validate@4.3.0/dist/just-validate.production.min.js"></script>
         <script src="{% static 'js/add_articulo.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/just-validate@4.3.0/dist/just-validate.production.min.js"></script>
     </body>
-
 </html>

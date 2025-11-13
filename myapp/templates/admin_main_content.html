@@ -1,0 +1,45 @@
+{% load static %}
+
+<main id="admin_main">
+    <link rel="stylesheet" href="{% static 'css/admin_main.css' %}">
+    
+    <h1>Articulos</h1>
+    <div class="tabla_articulos">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Stock</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for articulo in articulos %}
+                <tr>
+                    <td>{{ articulo.id }}</td>
+                    <td>{{ articulo.nombre_producto }}</td>
+                    <td>{{ articulo.descripcion }}</td>
+                    <td>${{ articulo.precio }}</td>
+                    <td>{{ articulo.subcategoria.categoria.nombre_categoria }}</td> 
+                    <td>{{ articulo.stock }}</td>
+                    <td class="acciones">
+                        <a href="#" class="editar_articulo"><i class="bi bi-pencil-square"></i></a> 
+                    </td>
+                    <td class="acciones">
+                        <a href="#" class="eliminar_articulo"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8">No hay artículos registrados.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>

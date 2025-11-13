@@ -2,4 +2,4 @@ from waitress import serve
 from tienda.wsgi import application
 
 if __name__ == "__main__":
-    serve(application, host="0.0.0.0", port=8000)
+    serve(application, host="127.0.0.1", port=8000)

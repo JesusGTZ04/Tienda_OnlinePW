@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --clr-main: RGB(30, 30, 30); /* Gris Oscuro/Negro */
+    --clr-white: #ececec; /* Blanco para texto/fondo claro */
+    --clr-gray: #e2e2e2; /* Gris claro para fondos de items */
+    --clr-gold: rgba(199, 161, 80); /* Dorado principal */
+    --clr-light-gray: #f5f5f5; /* Fondo de MAIN */
+    --clr-red: #e74c3c; /* Rojo para eliminar */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3, p, a, button, input {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* El body usa el color principal como fondo para las barras laterales */
+body {
+    background-color: var(--clr-main);
+}
+
+/* ===== WRAPPER (Contenedor principal con Grid Layout) ===== */
+.wrapper {
+    display: grid;
+    /* Divide la pantalla en dos columnas: 1 parte para el ASIDE, 4 partes para MAIN */
+    grid-template-columns: 1fr 4fr; 
+    min-height: 100vh;
+}
+
+.logo {
+    max-width: 50%;
+    border-radius: 1rem;
+}
+
+/* ===== ASIDE (Barra Lateral) ===== */
+aside {
+    padding: 2rem;
+    padding-right: 0; /* Sin padding a la derecha para que el MAIN se pegue */
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el footer hacia abajo */
+}
+
+aside header .logo {
+    color: var(--clr-gold);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Estilos de botones de navegación */
+aside nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--clr-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: .85rem;
+    width: 100%;
+    transition: color 0.2s;
+}
+
+.boton-menu:hover {
+    color: var(--clr-gold);
+}
+
+.boton-menu.active {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    /* Sombras para el efecto de corte con el MAIN (si lo necesitas) */
+    /* position: relative; */ 
+}
+
+/* Enlaces específicos de carrito */
+.boton-carrito {
+    margin-top: 2rem;
+    font-weight: 700;
+}
+
+/* Footer de la barra lateral */
+aside footer .texto-footer {
+    color: var(--clr-gold);
+    font-size: .75rem;
+}
+
+/* ===== ÁREA PRINCIPAL (MAIN) ===== */
+main {
+    background-color: var(--clr-light-gray);
+    margin: 1rem;
+    margin-left: 0; /* Pega el MAIN al ASIDE */
+    border-radius: 2rem;
+    padding: 3rem;
+    min-height: calc(100vh - 2rem); /* Altura mínima restando los márgenes */
+}
+
+.titulo-principal {
+    color: var(--clr-main);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* ===== COMPONENTES DEL CARRITO ===== */
+
+.contenedor-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.carrito-vacio,
+.carrito-comprado {
+    color: var(--clr-main);
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.carrito-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Item Individual */
+.carrito-producto {
+    display: grid;
+    grid-template-columns: 4rem 3fr 1fr 1fr 1fr 0.5fr; 
+    gap: 1rem;
+    align-items: center;
+    background-color: var(--clr-white); 
+    color: var(--clr-main);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.carrito-producto-imagen {
+    width: 100%;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.carrito-producto small {
+    font-size: 0.75rem;
+    color: #888;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.carrito-producto h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.carrito-producto-cantidad,
+.carrito-producto-precio,
+.carrito-producto-subtotal {
+    text-align: center;
+}
+
+/* Botón Eliminar */
+.carrito-producto-eliminar {
+    border: none;
+    background-color: transparent;
+    color: var(--clr-red);
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+/* ===== ACCIONES Y TOTAL ===== */
+.carrito-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background-color: var(--clr-white);
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.carrito-acciones-vaciar {
+    border: none;
+    background-color: var(--clr-gray);
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    color: var(--clr-main);
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.carrito-acciones-derecha {
+    display: flex;
+    align-items: center;
+}
+
+.carrito-acciones-total {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    color: var(--clr-main);
+    font-weight: 700;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    border: 2px solid var(--clr-gold);
+}
+
+.carrito-acciones-comprar {
+    border: none;
+    background-color: var(--clr-gold);
+    padding: 1rem 1.5rem;
+    color: var(--clr-main);
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+.carrito-acciones-comprar:hover {
+    background-color: goldenrod;
+}
+
+/* Ocultar elementos */
+.disabled {
+    display: none !important;
+}
+
+/* MOBILE - Ocultar en escritorio */
+.header-mobile, .close-menu {
+    display: none;
+}
